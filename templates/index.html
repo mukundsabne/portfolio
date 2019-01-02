@@ -10,15 +10,18 @@
   </head>
   <body>
 
+
+
     <div class="container" id="h">
-      <h2>
+      <h1>
           Hello
-      </h2>
+      </h1>
 
 
     </div>
     <div class="container">
-      <button type="button" class="btn btn-info" name="button" id="btn">Click Me</button>
+      <input type="text" name="n" onkeyup="go();" >
+<input type="color" name="c" onchange="go();">
     </div>
 
 
@@ -29,16 +32,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-$('#btn').click(function(){
+// $('#btn').click(function(){
+// var name = $('input[name="n"]').val();
+//
+// });
 
+function go()
+{
+ var name = $('input[name="n"]').val();
+  var color = $('input[name="c"]').val();
+
+  console.log(color);
+//alert(v);
   $.ajax({
     url:'/ajaxcall',
     type:'GET',
+    data:'name='+name+'&color='+color.substring(1),
     success:function(r){
       $('#h').html(r);
     }
   });
-});
+}
 </script>
   </body>
 </html>

@@ -6,4 +6,6 @@ def home(request):
     return render(request,'index.html')
 
 def forajax(request):
-    return render(request,'home1.html')
+    # name = request.GET['name']
+    # color = request.GET['color']
+    return render(request,'home12.html')
